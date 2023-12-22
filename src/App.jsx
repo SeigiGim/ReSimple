@@ -1,11 +1,11 @@
-import "./App.css";
+import "./app.css";
+import { fetchEmployees } from "./services/api";
+import { fetchEnterprises } from "./services/api";
 
-function App() {
-	return (
-		<>
-			<h1>Hola</h1>
-		</>
-	);
-}
+const App = () => {
+	console.log(fetchEmployees());
+	console.log(fetchEnterprises());
+	return <div>App</div>;
+};
 
 export default App;
