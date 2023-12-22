@@ -1,7 +1,12 @@
 import "./app.css";
+import Landingpage from "./pages/landingpage/Landingpage";
 
 const App = () => {
-	return <div>App</div>;
+	return (
+		<div>
+			<Landingpage />
+		</div>
+	);
 };
 
 export default App;

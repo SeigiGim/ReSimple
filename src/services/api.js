@@ -13,5 +13,10 @@ const fetchData = async (url) => {
 export const fetchEmployees = () =>
 	fetchData("https://resimpleapi.up.railway.app/data-employees");
 
-export const fetchEnterprises = () =>
-	fetchData("https://resimpleapi.up.railway.app/data-enterprises");
+export const fetchEnterprises = async () => {
+	const response = await fetchData(
+		"https://resimpleapi.up.railway.app/data-enterprises"
+	);
+
+	return response.EMPRESAS;
+};
