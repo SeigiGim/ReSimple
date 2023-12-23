@@ -1,11 +1,13 @@
+import { ThemeProvider } from "@mui/material/styles";
 import LandingPage from "./pages/landingpage/Landingpage";
+import theme from "./theme"; // Importa tu tema
 
-const App = () => {
+function App() {
 	return (
-		<div>
+		<ThemeProvider theme={theme}>
 			<LandingPage />
-		</div>
+		</ThemeProvider>
 	);
-};
+}
 
 export default App;
