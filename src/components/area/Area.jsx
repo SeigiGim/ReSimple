@@ -1,26 +1,11 @@
-import PropTypes from "prop-types";
+/* eslint-disable react/prop-types */
 import Employee from "../employee/Employee";
 
-const Area = ({ area }) => {
-	const { NOMBRE_AREA } = area;
-
-	return (
-		<>
-			<div>
-				<h3>{NOMBRE_AREA}</h3>
-				{area.employees.map((employee) => (
-					<Employee key={employee.RUT_TRABAJADOR} employee={employee} />
-				))}
-			</div>
-		</>
-	);
-};
-
-Area.propTypes = {
-	area: PropTypes.shape({
-		NOMBRE_AREA: PropTypes.string,
-		employees: PropTypes.arrayOf(PropTypes.object),
-	}).isRequired,
-};
+const Area = ({ area, employees }) => (
+	<div key={area.ID_AREA}>
+		<h3>{area.NOMBRE_AREA}</h3>
+		<Employee employees={employees} />
+	</div>
+);
 
 export default Area;

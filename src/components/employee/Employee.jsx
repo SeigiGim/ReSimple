@@ -1,30 +1,17 @@
-import { PropTypes } from "prop-types";
-
-const Employee = ({ employee }) => {
-	const { NOMBRE_TRABAJADOR, RUT_TRABAJADOR, EDAD, CARGO, PROFESION } =
-		employee;
-
-	return (
-		<>
-			<div>
-				<h2>Nombre: {NOMBRE_TRABAJADOR}</h2>
-				<p>Rut: {RUT_TRABAJADOR}</p>
-				<p>Edad: {EDAD}</p>
-				<p>Cargo: {CARGO}</p>
-				<p>Profesion: {PROFESION}</p>
+/* eslint-disable react/prop-types */
+const Employee = ({ employees }) => (
+	<div>
+		<h4>Empleados</h4>
+		{employees.map((employee) => (
+			<div key={employee.RUT_TRABAJADOR}>
+				<p>Nombre: {employee.NOMBRE_TRABAJADOR}</p>
+				<p>RUT: {employee.RUT_TRABAJADOR}</p>
+				<p>Edad: {employee.EDAD}</p>
+				<p>Cargo: {employee.CARGO}</p>
+				<p>Profesión: {employee.PROFESION}</p>
 			</div>
-		</>
-	);
-};
-
-Employee.propTypes = {
-	employee: PropTypes.shape({
-		NOMBRE_TRABAJADOR: PropTypes.string,
-		RUT_TRABAJADOR: PropTypes.string,
-		EDAD: PropTypes.number,
-		CARGO: PropTypes.string,
-		PROFESION: PropTypes.string,
-	}).isRequired,
-};
+		))}
+	</div>
+);
 
 export default Employee;

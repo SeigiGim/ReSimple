@@ -1,35 +1,28 @@
-import { useEffect, useState } from "react";
-import { fetchEmployees, fetchEnterprises } from "../../services/api";
-import { groupData } from "../../services/groupData";
-import { Enterprise } from "../../components";
-const Landingpage = () => {
-	const [data, setData] = useState({});
+import { useFetchEnterprises } from "../../services/useFetchEnterprises";
+import { useFetchEmployees } from "../../services/useFetchEmployees";
+import Enterprise from "../../components/enterprise/Enterprise";
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const employees = await fetchEmployees();
-			const enterprises = await fetchEnterprises();
+const LandingPage = () => {
+	const { data: enterprisesData, loading: enterprisesLoading } =
+		useFetchEnterprises();
+	const { data: employeesData, loading: employeesLoading } =
+		useFetchEmployees();
 
-			const agrupedData = groupData(employees, enterprises);
-
-			setData(agrupedData);
-		};
-		fetchData();
-	}, []);
+	if (enterprisesLoading || employeesLoading) return "Cargando...";
 
 	return (
-		<>
-			<div>
-				{Object.values(data).map((enterprise) => (
-					<Enterprise
-						key={enterprise.id}
-						enterprise={enterprise}
-						employees={data[enterprise.id].areas}
-					/>
-				))}
-			</div>
-		</>
+		<div>
+			{enterprisesData.map((enterprise) => (
+				<Enterprise
+					key={enterprise.ID_EMPRESA}
+					enterprise={enterprise}
+					employees={employeesData.filter(
+						(employee) => employee.ID_EMPRESA === enterprise.ID_EMPRESA
+					)}
+				/>
+			))}
+		</div>
 	);
 };
 
-export default Landingpage;
+export default LandingPage;
