@@ -1,3 +1,4 @@
+import "./App.css";
 import { ThemeProvider } from "@mui/material/styles";
 import LandingPage from "./pages/landingpage/Landingpage";
 import theme from "./theme"; // Importa tu tema
