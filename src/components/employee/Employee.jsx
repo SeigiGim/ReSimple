@@ -1,17 +1,61 @@
 /* eslint-disable react/prop-types */
+import {
+	Card,
+	CardContent,
+	Typography,
+	Grid,
+	Avatar,
+	Box,
+} from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import CakeIcon from "@mui/icons-material/Cake";
+import WorkIcon from "@mui/icons-material/Work";
+import SchoolIcon from "@mui/icons-material/School";
+
 const Employee = ({ employees }) => (
-	<div>
-		<h4>Empleados</h4>
+	<Grid container spacing={2}>
 		{employees.map((employee) => (
-			<div key={employee.RUT_TRABAJADOR}>
-				<p>Nombre: {employee.NOMBRE_TRABAJADOR}</p>
-				<p>RUT: {employee.RUT_TRABAJADOR}</p>
-				<p>Edad: {employee.EDAD}</p>
-				<p>Cargo: {employee.CARGO}</p>
-				<p>Profesión: {employee.PROFESION}</p>
-			</div>
+			<Grid item xs={12} sm={6} key={employee.RUT_TRABAJADOR}>
+				<Card>
+					<CardContent>
+						<Box display="flex" alignItems="center">
+							<Avatar sx={{ width: 24, height: 24, marginRight: 1 }}>
+								<PersonIcon fontSize="small" />
+							</Avatar>
+							<Typography variant="h6" noWrap>
+								Nombre: {employee.NOMBRE_TRABAJADOR}
+							</Typography>
+						</Box>
+						<Box display="flex" alignItems="center">
+							<Avatar sx={{ width: 24, height: 24, marginRight: 1 }}>
+								<AssignmentIndIcon fontSize="small" />
+							</Avatar>
+							<Typography noWrap>RUT: {employee.RUT_TRABAJADOR}</Typography>
+						</Box>
+						<Box display="flex" alignItems="center">
+							<Avatar sx={{ width: 24, height: 24, marginRight: 1 }}>
+								<CakeIcon fontSize="small" />
+							</Avatar>
+							<Typography noWrap>Edad: {employee.EDAD}</Typography>
+						</Box>
+						<Box display="flex" alignItems="center">
+							<Avatar sx={{ width: 24, height: 24, marginRight: 1 }}>
+								<WorkIcon fontSize="small" />
+							</Avatar>
+							<Typography noWrap>Cargo: {employee.CARGO}</Typography>
+						</Box>
+						<Box display="flex" alignItems="center">
+							<Avatar sx={{ width: 24, height: 24, marginRight: 1 }}>
+								<SchoolIcon fontSize="small" />
+							</Avatar>
+							<Typography noWrap>Profesión: {employee.PROFESION}</Typography>
+						</Box>
+					</CardContent>
+				</Card>
+			</Grid>
 		))}
-	</div>
+	</Grid>
 );
 
 export default Employee;

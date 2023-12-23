@@ -7,7 +7,7 @@ const Area = ({ area, employees }) => {
 		<Grid item xs={12} sm={6}>
 			<Card>
 				<CardContent>
-					<Typography variant="h3">{area.NOMBRE_AREA}</Typography>
+					<Typography variant="h4">{area.NOMBRE_AREA}</Typography>
 					{employees.length === 0 ? (
 						<Typography>Sin empleados</Typography>
 					) : (

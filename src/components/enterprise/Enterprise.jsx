@@ -18,7 +18,7 @@ const Enterprise = ({ enterprise, employees }) => (
 			<CardContent>
 				<Accordion>
 					<AccordionSummary expandIcon={<ExpandMoreIcon />}>
-						<Typography variant="h2">{enterprise.NOMBRE_EMPRESA}</Typography>
+						<Typography variant="h3">{enterprise.NOMBRE_EMPRESA}</Typography>
 					</AccordionSummary>
 					<AccordionDetails>
 						<Grid container spacing={2}>
